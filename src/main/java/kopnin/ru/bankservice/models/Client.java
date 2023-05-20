@@ -23,11 +23,9 @@ public class Client {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="limitClient")
     private List<Limits> clientLimits;
-
+//Конструктор без параметров
     public Client() {
     }
-
-
     public Long getId() {
         return id;
     }
