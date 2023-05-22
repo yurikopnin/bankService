@@ -4,10 +4,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Entity
@@ -18,11 +15,11 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    @Length(min=0, max=10)
+    @Pattern(regexp = "d{10}")
     @Column(name="accountFrom")
     private String accountFrom;
     @NotEmpty
-    @Length(min=0, max=10)
+    @Pattern(regexp = "d{10}")
     @Column(name="accountTo")
     private String accountTo;
     @PositiveOrZero
