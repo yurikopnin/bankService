@@ -14,7 +14,7 @@ public class Client {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+    @NotEmpty(message = " Field may not be empty")
     @Column(name = "bankAccountNumber")
     private String bankAccountNumber;
     @OneToMany(cascade = CascadeType.ALL)

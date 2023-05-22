@@ -2,6 +2,7 @@ package kopnin.ru.bankservice.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Limits {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Min(0)
+    @PositiveOrZero
     @Column(name="limitSum")
     private BigDecimal limitSum;
     @Column(name="remainingMonthLimit")

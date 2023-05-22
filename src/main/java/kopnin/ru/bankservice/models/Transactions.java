@@ -1,8 +1,13 @@
 package kopnin.ru.bankservice.models;
 
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Entity
@@ -13,19 +18,21 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
+    @Length(min=0, max=10)
     @Column(name="accountFrom")
     private String accountFrom;
     @NotEmpty
+    @Length(min=0, max=10)
     @Column(name="accountTo")
     private String accountTo;
-    @Min(0)
+    @PositiveOrZero
     @Column(name="sum")
     private BigDecimal sum;
     @Column(name="currencyShortname")
     private String currencyShortname;
     @Column(name="expenseCategory")
     private  String expenseCategory;
-    @Basic
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name="datetime")
     private LocalDateTime datetime;
     private Long transactionClient;
