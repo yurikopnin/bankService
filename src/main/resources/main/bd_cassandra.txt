@@ -1,0 +1,18 @@
+create keyspace bankService with replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+USE bankService;
+CREATE TABLE conversions (
+    id uuid,
+    rate decimal,
+    rateOnPreviousClose decimal,
+    madeAt timestamp,
+    symbol text,
+    PRIMARY KEY ( id )
+);
+
+SELECT * FROM conversions;
+
+Insert into bankservice.conversions(id,rate, rateOnPreviousClose, madeAt,symbol)
+values (61f0c404-5cb3-11e7-907b-a6006ad3dba0,1,1,'2011-02-03 04:05+0000','test');
+
+
+SELECT * FROM conversions;

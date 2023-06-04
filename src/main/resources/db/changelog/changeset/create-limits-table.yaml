@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-author #текстовый идентификатор (Обязателен)
+      author: Yuri Kopnin # автор (Обязателен)
+      changes:
+        - createTable: # создаем новую таблицу
+            tableName: limits
+            columns: # объявления колонок
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: limitSum
+                  type: decimal
+              - column:
+                  name: remainingMonthLimit
+                  type: decimal
+              - column:
+                  name: limitDateTime
+                  type: timestamp
+              - column:
+                  name: limitCurrencyShortname
+                  type: varchar(255)
+              - column:
+                  name: limitExpenseCategory
+                  type: varchar(255)
+              - column:
+                  name: limitClient
+                  type: bigint
+                  constraints:
+                    foreignKeyName: client_limits_fk
+                    referencedTableName: clients
+                    referencedColumnNames: id

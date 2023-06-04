@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-author #текстовый идентификатор (Обязателен)
+      author: Yuri Kopnin # автор (Обязателен)
+      changes:
+        - createTable: # создаем новую таблицу
+            tableName: transactions
+            columns: # объявления колонок
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: accountFrom
+                  type: varchar(255)
+              - column:
+                  name: accountTo
+                  type: varchar(255)
+              - column:
+                  name: sum
+                  type: decimal
+              - column:
+                  name: currencyShortname
+                  type: varchar(255)
+              - column:
+                  name: datetime
+                  type: timestamp
+              - column:
+                  name: transactionClient
+                  type: bigint
+                  constraints:
+                    foreignKeyName: client_transactions_fk
+                    referencedTableName: clients
+                    referencedColumnNames: id
+              - column:
+                  name: transactionLimit
+                  type: bigint
+                  constraints:
+                    foreignKeyName: limit_transactions_fk
+                    referencedTableName: limits
+                    referencedColumnNames: id
+              - column:
+                  name: limitExceeded
+                  type: boolean
+
+

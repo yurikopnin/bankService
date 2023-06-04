@@ -1,7 +1,8 @@
-package kopnin.ru.bankservice.models;
+package kopnin.ru.bankservice.models.postgres;
+
+
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

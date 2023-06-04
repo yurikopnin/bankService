@@ -1,4 +1,4 @@
-package kopnin.ru.bankservice.models;
+package kopnin.ru.bankservice.models.postgres;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;

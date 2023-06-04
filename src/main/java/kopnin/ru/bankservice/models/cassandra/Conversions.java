@@ -1,30 +1,38 @@
-package kopnin.ru.bankservice.models;
+package kopnin.ru.bankservice.models.cassandra;
 
-import org.hibernate.annotations.GenericGenerator;
 
+
+import lombok.Data;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
-@Entity
-@Table(name="conversions")
+
+@Table("conversions")
 public class Conversions {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator")
+    @PrimaryKey
     private UUID id;
-    @Column(name="rate")
+    @Column("rate")
     private BigDecimal rate;
-    @Column(name="rateOnPreviousClose")
+    @Column("rateOnPreviousClose")
     private BigDecimal rateOnPreviousClose;
-    @Column(name="madeAt")
+    @Column("madeAt")
     private LocalDateTime madeAt;
-    @Column(name="symbol")
+    @Column("symbol")
     private String symbol;
 
     public Conversions() {
+    }
+
+    public Conversions(UUID id, BigDecimal rate, BigDecimal rateOnPreviousClose, LocalDateTime madeAt, String symbol) {
+        this.id = id;
+        this.rate = rate;
+        this.rateOnPreviousClose = rateOnPreviousClose;
+        this.madeAt = madeAt;
+        this.symbol = symbol;
     }
 
     public UUID getId() {
@@ -65,5 +73,16 @@ public class Conversions {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    @Override
+    public String toString() {
+        return "Conversions{" +
+                "id=" + id +
+                ", rate=" + rate +
+                ", rateOnPreviousClose=" + rateOnPreviousClose +
+                ", madeAt=" + madeAt +
+                ", symbol='" + symbol + '\'' +
+                '}';
     }
 }
