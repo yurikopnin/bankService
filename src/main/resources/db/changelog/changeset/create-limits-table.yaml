@@ -14,22 +14,22 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: limitSum
+                  name: limit_sum
                   type: decimal
               - column:
-                  name: remainingMonthLimit
+                  name: remaining_month_limit
                   type: decimal
               - column:
-                  name: limitDateTime
+                  name: limit_datetime
                   type: timestamp
               - column:
-                  name: limitCurrencyShortname
+                  name: limit_currency_shortname
                   type: varchar(255)
               - column:
-                  name: limitExpenseCategory
+                  name: limit_expense_category
                   type: varchar(255)
               - column:
-                  name: limitClient
+                  name: limit_сlient
                   type: bigint
                   constraints:
                     foreignKeyName: client_limits_fk

@@ -3,3 +3,5 @@ databaseChangeLog: #параметр в котором находятся миг
       file: db/changelog/changeset/create-clients-table.yaml # путь к файлу миграции
   - include: # список активных миграций
       file: db/changelog/changeset/create-limits-table.yaml # путь к файлу миграции
+  - include: # список активных миграций
+      file: db/changelog/changeset/create-transactions-table.yaml # путь к файлу миграции

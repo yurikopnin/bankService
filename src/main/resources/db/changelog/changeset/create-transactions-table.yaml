@@ -14,36 +14,39 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: accountFrom
+                  name: account_from
                   type: varchar(255)
               - column:
-                  name: accountTo
+                  name: account_to
                   type: varchar(255)
               - column:
                   name: sum
                   type: decimal
               - column:
-                  name: currencyShortname
+                  name: currency_shortname
+                  type: varchar(255)
+              - column:
+                  name: expense_category
                   type: varchar(255)
               - column:
                   name: datetime
                   type: timestamp
               - column:
-                  name: transactionClient
+                  name: transaction_client
                   type: bigint
                   constraints:
                     foreignKeyName: client_transactions_fk
                     referencedTableName: clients
                     referencedColumnNames: id
               - column:
-                  name: transactionLimit
+                  name: transaction_limit
                   type: bigint
                   constraints:
                     foreignKeyName: limit_transactions_fk
                     referencedTableName: limits
                     referencedColumnNames: id
               - column:
-                  name: limitExceeded
+                  name: limit_exceeded
                   type: boolean
 
 

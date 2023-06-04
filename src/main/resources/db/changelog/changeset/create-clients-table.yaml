@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: bankAccountNumber
+                  name: bank_account_number
                   type: varchar(255)
                   constraints:
                     nullable: false

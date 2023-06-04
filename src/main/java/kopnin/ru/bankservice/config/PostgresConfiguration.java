@@ -29,22 +29,24 @@ public class PostgresConfiguration {
     public DataSourceProperties dataSourceProperties() {
         return new DataSourceProperties();
     }
+
     @Primary
     @Bean(name = "postgresDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource datasource(@Qualifier("postgresProperties") DataSourceProperties properties) {
         return properties.initializeDataSourceBuilder().build();
     }
+
     @Primary
     @Bean(name = "postgresEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean barEntityManagerFactory(
             EntityManagerFactoryBuilder builder, @Qualifier("postgresDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.foobar.bar.domain")
-                .persistenceUnit("bar")
+                .packages("kopnin.ru.bankservice.models")
+                .persistenceUnit("client").persistenceUnit("limit").persistenceUnit("transaction")
                 .build();
     }
+
     @Primary
     @Bean(name = "postgresTransactionManager")
     public PlatformTransactionManager barTransactionManager(

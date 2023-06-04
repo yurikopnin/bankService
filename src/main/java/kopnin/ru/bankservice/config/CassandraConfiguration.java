@@ -1,5 +1,6 @@
 package kopnin.ru.bankservice.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,33 +13,29 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 @EnableCassandraRepositories("kopnin.ru.bankservice.repositories.cassandra")
 public class CassandraConfiguration extends AbstractCassandraConfiguration {
 
-    @Value("${spring.data.cassandra.keyspace-name}")
-    private String keySpace;
-    @Value("${spring.data.cassandra.contact-points}")
-    private String contactPoints;
-    @Value("${spring.data.cassandra.port}")
-    private int port;
-    @Value("${spring.data.cassandra.local-datacenter}")
-    private String dataCenter;
-
+ private CassandraConfigurationProperties cassandraConfigurationProperties;
+@Autowired
+    public CassandraConfiguration(CassandraConfigurationProperties cassandraConfigurationProperties) {
+        this.cassandraConfigurationProperties = cassandraConfigurationProperties;
+    }
 
     @Override
     protected String getKeyspaceName() {
-        return keySpace;
+        return cassandraConfigurationProperties.getKeySpace();
     }
 
     @Override
     public String getContactPoints() {
-        return contactPoints;
+        return cassandraConfigurationProperties.getContactPoints();
     }
 
     @Override
     public int getPort() {
-        return port;
+        return cassandraConfigurationProperties.getPort();
     }
 
     public String getDataCenter() {
-        return dataCenter;
+        return cassandraConfigurationProperties.getDataCenter();
     }
 
 
