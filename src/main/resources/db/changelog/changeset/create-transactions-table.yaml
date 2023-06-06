@@ -34,17 +34,17 @@ databaseChangeLog:
               - column:
                   name: transaction_client
                   type: bigint
-                  constraints:
-                    foreignKeyName: client_transactions_fk
-                    referencedTableName: clients
-                    referencedColumnNames: id
+#                  constraints:
+#                    foreignKeyName: client_transactions_fk
+#                    referencedTableName: clients
+#                    referencedColumnNames: id
               - column:
                   name: transaction_limit
                   type: bigint
-                  constraints:
-                    foreignKeyName: limit_transactions_fk
-                    referencedTableName: limits
-                    referencedColumnNames: id
+#                  constraints:
+#                    foreignKeyName: limit_transactions_fk
+#                    referencedTableName: limits
+#                    referencedColumnNames: id
               - column:
                   name: limit_exceeded
                   type: boolean

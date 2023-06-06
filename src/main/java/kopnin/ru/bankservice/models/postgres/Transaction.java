@@ -21,11 +21,11 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    @Pattern(regexp = "d{10}")
+   // @Pattern(regexp = "d{10}")
     @Column(name = "account_from")
     private String accountFrom;
     @NotEmpty
-    @Pattern(regexp = "d{10}")
+  //  @Pattern(regexp = "d{10}")
     @Column(name = "account_to")
     private String accountTo;
     @PositiveOrZero

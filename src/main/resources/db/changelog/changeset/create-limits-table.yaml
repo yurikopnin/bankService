@@ -31,7 +31,7 @@ databaseChangeLog:
               - column:
                   name: limit_сlient
                   type: bigint
-                  constraints:
-                    foreignKeyName: client_limits_fk
-                    referencedTableName: clients
-                    referencedColumnNames: id
+#                  constraints:
+#                    foreignKeyName: client_limits_fk
+#                    referencedTableName: clients
+#                    referencedColumnNames: id
