@@ -36,10 +36,7 @@ public class CassandraRepTest {
         conversion.setMadeAt(LocalDateTime.now());
         conversion.setSymbol("USD");
 
-
         conversionsRepositories.save(conversion);
         Assertions.assertNotNull(conversion.getId());
-
-
     }
 }

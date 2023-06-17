@@ -31,7 +31,6 @@ public class RepositoryTest {
     private final LimitsRepositories limitsRepositories;
     private final TransactionsRepositories transactionsRepositories;
 
-
     @Autowired
     public RepositoryTest(ClientRepositories clientRepositories,
                           TransactionsRepositories transactionsRepositories,

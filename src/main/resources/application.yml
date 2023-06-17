@@ -19,6 +19,4 @@ spring:
         show_sql: false
         temp:
           use_jdbc_metadata_defaults: false
-  client:
-    exchange:
-      baseUrl: https://api.twelvedata.com/exchange_rate?symbol=EUR/USD&apikey=demo&source=docs
+
