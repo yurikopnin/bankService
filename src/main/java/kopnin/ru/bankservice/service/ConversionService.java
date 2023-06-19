@@ -35,32 +35,32 @@ public class ConversionService {
     }
 
     @Transactional
-    public void addConversionEUR_USD() {
+    public void addConversion() {
 
 
-
-//        if (exchangeRateClient.getExchangeRate().getStatusCode().is2xxSuccessful()) {
-//          //  System.out.println(exchangeRateClient.getExchangeRate().getStatusCode()   );
+//        if (exchangeRateClient.getExchangeRate("EUR/RUB", "demo").getStatusCode().is2xxSuccessful()) {
+//
+//
 //            ConversionKey conversionKey = new ConversionKey();
 //            Conversion conversion = new Conversion();
-//            conversionKey.setMadeAt(MateConvertor.mateAtConvertor(exchangeRateClient.getExchangeRate().getBody()));
-//            conversionKey.setSymbol(exchangeRateClient.getExchangeRate().getBody().getSymbol());
+//            conversionKey.setMadeAt(MateConvertor.mateAtConvertor(exchangeRateClient.getExchangeRate("EUR/USD", "demo").getBody()));
+//            conversionKey.setSymbol(exchangeRateClient.getExchangeRate("EUR/USD", "demo").getBody().getSymbol());
 //            conversion.setKey(conversionKey);
-//            conversion.setRate(exchangeRateClient.getExchangeRate().getBody().getRate());
-//            conversion.setRateOnPreviousClose(exchangeRateClient.getExchangeRate().getBody().getRate());
+//            conversion.setRate(exchangeRateClient.getExchangeRate("EUR/USD", "demo").getBody().getRate());
+//            conversion.setRateOnPreviousClose(exchangeRateClient.getExchangeRate("EUR/USD", "demo").getBody().getRate());
 //            cassandraRepository.save(conversion);
 //
 //
-//        } else if (exchangeRateClient.getExchangeRate().getStatusCode().is4xxClientError()|
-//                exchangeRateClient.getExchangeRate().getStatusCode().is5xxServerError()) {
+//        } else if (exchangeRateClient.getExchangeRate("EUR/RUB", "demo").getStatusCode().is4xxClientError() |
+//                exchangeRateClient.getExchangeRate("EUR/RUB", "demo").getStatusCode().is5xxServerError()) {
 //
 //            String select = "SELECT * FROM conversions WHERE symbol = 'EUR/USD' ORDER BY made_at DESC LIMIT 1";
 //            Conversion conversion = cassandraTemplate.select(select, Conversion.class).stream().findFirst().orElse(null);
-//           // conversion.setRate(conversion.getRateOnPreviousClose());
-//          //  conversion.setRate(BigDecimal.valueOf(2));
-//          //  cassandraTemplate.update(conversion);
+//            conversion.setRate(conversion.getRateOnPreviousClose());
+//           // conversion.setRate(BigDecimal.valueOf(2));
+//            cassandraTemplate.update(conversion);
 //            System.out.println(conversion);
-
+//
 //        }
 
 
