@@ -12,9 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@NoArgsConstructor
-@Setter
-@Getter
+@Data
 @Entity
 @Table(name = "limits")
 public class Limit {
@@ -33,11 +31,12 @@ public class Limit {
     private String limitCurrencyShortname;
     @Column(name = "limit_expense_category")
     private String limitExpenseCategory;
-    @Column(name = "limit_сlient")
-    private Long limitClient;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "transaction_limit ")
-    private List<Transaction> limitTransactions;
+    @ManyToOne
+    @JoinColumn(name = "limit_сlient", nullable = true)
+    private Client client;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "transaction_limit ")
+//    private List<Transaction> limitTransactions;
 
 
 }

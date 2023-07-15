@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface ExchangeRateClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "?symbol={symbol}&apikey=demo")
-    ResponseEntity<ConversionDTO> getExchangeRate(@RequestParam(value = "symbol") String symbol);
+    ResponseEntity<String> getExchangeRate(@RequestParam(value = "symbol") String symbol);
 
 
 }

@@ -16,7 +16,7 @@ public class MateConvertor {
 
         final long unixTime = conversionDTO.getTimestamp();
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
-                .atZone(ZoneId.of("GMT+3"))
+                .atZone(ZoneId.of("GMT+0"))
                 .format(formatter);
         LocalDateTime localDateTime = LocalDateTime.parse(formattedDtm, formatter);
         return localDateTime;

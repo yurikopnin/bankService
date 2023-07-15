@@ -1,5 +1,7 @@
 package kopnin.ru.bankservice.models.postgres;
 
+import com.sun.istack.NotNull;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +12,7 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@Setter
-@Getter
+@Data
 @Entity
 @Table(name = "transactions")
 public class Transaction {
@@ -38,12 +38,14 @@ public class Transaction {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "datetime")
     private LocalDateTime datetime;
-    @Column(name = "transaction_client")
-    private Long transactionClient;
-    @Column(name = "transaction_limit")
-    private Long transactionLimit;
     @Column(name = "limit_exceeded")
     private boolean limitExceeded;
+    @ManyToOne
+    @JoinColumn(name = "transaction_client", nullable = true)
+    private Client client;
+    @ManyToOne
+    @JoinColumn(name = "transaction_limit", nullable = true)
+    private Limit limit;
 
 
 }
