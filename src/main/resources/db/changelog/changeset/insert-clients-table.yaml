@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-author #текстовый идентификатор (Обязателен)
+      author: Yuri Kopnin # автор (Обязателен)
+      changes:
+       - sql:
+          sql: insert into clients (id, bank_account_number) values (1, '1111111111')
+       - sql:
+          sql: insert into clients (id, bank_account_number) values (2, '2222222222')
+       - sql:
+          sql: insert into clients (id, bank_account_number) values (3, '3333333333')
+       - sql:
+           sql: insert into clients (id, bank_account_number) values (4, '444444444 ')
